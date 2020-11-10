@@ -1,9 +1,9 @@
 <?php
 include ('../libraries/database.php');
 
-$id = $_POST['id'];
 $name = $_POST['name'];
-$query="insert into dbquanlibanhang.category(category_id,category_name) values ('$id','$name');";
+$id = $_POST['id'];
+$query="insert into dbquanlibanhang.categories(product_style,category_code) values ('$name','$id');";
 $pdo->query($query);
 if($query){
     header("location:../index.php");

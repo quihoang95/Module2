@@ -59,9 +59,9 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     
-                                    <a class="nav-link" href="categories/displayCategories.php">Loại hàng</a>
-                                    <a class="nav-link" href="categories/displayCategories.php">Kho hàng</a>
-                                    <a class="nav-link" href="categories/displayCategories.php">Order</a>
+                                    <a class="nav-link" href="categories/categories.php">Loại hàng</a>
+                                    <a class="nav-link" href="categories/categories.php">Kho hàng</a>
+                                    <a class="nav-link" href="categories/categories.php">Order</a>
                                     
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.php">
