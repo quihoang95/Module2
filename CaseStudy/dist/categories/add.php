@@ -18,6 +18,10 @@
                                       <label for="exampleInputEmail1">Loại hàng:</label>
                                       <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
                                     </div>
+                                    <div class="form-group col-6">
+                                      <label for="exampleInputEmail1">Loại hàng:</label>
+                                      <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
+                                    </div>
                                     <button type="submit" class="save btn btn-primary">Lưu</button>
                                   </form>
                                 </div>
