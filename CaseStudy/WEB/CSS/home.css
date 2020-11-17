@@ -1,0 +1,108 @@
+:root{
+    --carrot: #e67e22;
+    --red: #ff0000;
+    --tomatoRed: #eb2f06;
+    --pinkRogue:#f8a5c2;
+    --pink: #ffb8b8;
+    --pretty: #ffcccc;
+    --white:#ffffff;
+    --livid:#6a89cc;
+    --spray:#82ccdd;
+    --bright: #3742fa;
+    --darkShapphire:#0c2461;
+    --grey: #333333;
+    --fontCovered: 'Covered By Your Grace', cursive;
+    --fontTreb: 'Trebuchet MS',  cursive;
+    --fontSatisfy:'Satisfy', cursive;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+*{
+    box-sizing: border-box;
+}
+
+.logo{
+    position: absolute;
+    left: 90px;
+    top: 32px;
+    width: 30%;
+}
+.logo a{
+    font-family: var(--fontCovered);
+    font-weight: 700;
+    color: #ff7979;
+    font-size: 4rem;
+    text-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+    text-decoration: none !important;
+
+}
+.logo font{
+    color: var(--tomatoRed)
+}
+.search__header{
+    justify-content: center;
+    margin: 60px;
+
+}
+.search__header input{
+    border-radius: 50px;
+    text-align: center;
+    justify-content: center;
+    width: 300px !important;
+}
+.search__header button{
+    border-radius: 50px;
+    background-color: var(--pretty);
+    border: var(--pinkRogue);
+    color: #d63031;
+
+}
+.search__header button:hover{
+    background-color: var(--pink);
+}
+.cart{
+    float: right;
+    margin-top: -102px;
+    margin-right: 30px;
+    color: var(--pinkRogue);
+}
+/* Navbar */
+.nav{
+    background-color: pink !important;
+    font-family: var(--fontTreb);
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    word-spacing: 3px;
+}
+.nav a{
+    font-size: 1.4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+.nav a:hover{
+    background-color: var(--pretty);
+    border-radius: 20px;
+    width: 100px;
+}
+
+
+/* Product */
+.title h3{
+    text-align: center;
+    font-family: var(--fontCovered);
+    margin: 10px;
+    font-size: 3rem;
+    background-color: #f8a5c2;
+    border-radius: 50px;
+
+}
+.list{
+    width: 30%;
+}
+
+

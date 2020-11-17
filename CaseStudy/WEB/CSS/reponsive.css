@@ -1,0 +1,111 @@
+@media(max-width:1230px){
+    .main-img{
+        height: 400px;
+        padding-top: 20px;
+    }
+    .main-text h1,h2{
+        font-size: 3.5rem;
+    }
+    .side-box{
+        margin-right: 50px;
+    }
+}
+@media(max-width:1045px){
+    .main{
+        background-size: 600px;
+    }
+    .main-img{
+        display: none;
+    }
+    .main-text{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .our-brand{
+        flex-direction: column-reverse;
+    }
+    .brand-text, .brand-img{width:100%;}
+    .brand-img{
+        height: 500px;
+        margin: 20px;
+    }
+}
+@media(max-width:600px){
+    .social{
+        display: none;
+    }
+    .logo{
+        left: 30px;
+        top: 30px;
+        width: 100%;
+    }
+    .logo a{
+        font-size: 3rem;
+    }
+    .side-box{
+        right: 40px;
+        top: 30px;
+    }
+   .product__show{
+       margin-left: -15px !important;
+   }
+   .main{
+       width: 700px;
+   }
+    .main-text{
+        overflow-wrap: break-word;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    .main-text h1,h2{
+        font-size: 2.5rem;
+        letter-spacing: 10px;
+        margin: 0px 20px;
+        line-height: 40px;
+    }
+    .main-text h2{
+        font-size: 1.2rem;
+    }
+    .main-btn{
+        margin: 0px 20px;
+    }
+    .product{
+        width: 88%;
+    }
+    .p-box{
+        margin: 20px 10px;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+    }
+    .p-box img{
+        height: 270px;
+    }
+    .subcribe-container h3{
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    .subcribe-input{
+        width: 95%;
+    }
+    .footer-menu{
+        width: 100%;
+        margin:20px;
+        flex-wrap: wrap;
+        background-color: none;
+        box-shadow: none;
+        margin-left: 0;
+    }
+    .footer-menu li a{
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+        padding: 10px 30px !important;
+    }
+    .copyright{
+        text-align: center;
+    }
+
+}

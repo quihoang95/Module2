@@ -4,7 +4,7 @@ include ('../database/database.php');
 ?>
 <?php
     $id = $_GET['id'];
-    $query = "SELECT * FROM `quanlithuvien`.`category` WHERE (`category_id` = '$id');";
+    $query = "SELECT * FROM `quanlithuvien`.`category`";
     $stmt = $pdo->query($query);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
