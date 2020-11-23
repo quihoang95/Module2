@@ -3,6 +3,7 @@
     $id = $_GET['id'];
     $query = "SELECT * FROM `dbquanlibanhang`.`products`";
     $stmt = $pdo->query($query);
+    $row = $stmt->fetch();
 
     $query2='SELECT * FROM dbquanlibanhang.categories;';
         $conn2=$pdo->query($query2);
@@ -16,10 +17,10 @@
                         <h1 class="mt-4">Dashboard</h1>
                        
                         <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active"><a href="/index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="/../Admin/dist/index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">Danh mục</li>
-                            <li class="breadcrumb-item active"><a href="/products/products.php">Kho hàng</a></li>
-                            <li class="breadcrumb-item active"><a href="/products/editProduct.php">Edit</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/products/products.php">Kho hàng</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/products/editProduct.php">Edit</a></li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -29,11 +30,11 @@
                                         <input type="hidden" name="id" value="<?=$id?>">
                                             <div class="form-group col-6">
                                                 <label for="code">Code:</label>
-                                                <input type="text" class="form-control" name="code">
+                                                <input type="text" class="form-control" name="code" value="<?=$row['product_code']?>" require>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="name">Name:</label>
-                                                <input type="text" class="form-control" name="name">
+                                                <input type="text" class="form-control" name="name" value="<?=$row['product_name']?>" required>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="style">Style:</label>
@@ -45,19 +46,19 @@
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="stock">Stock:</label>
-                                                <input type="text" class="form-control" name="stock">
+                                                <input type="text" class="form-control" name="stock" value="<?=$row['stock']?>"><p></p>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="picture">Picture:</label>
-                                                <input type="text" class="form-control" name="picture">
+                                                <input type="text" class="form-control" name="picture" value="<?=$row['img']?>">
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="price">Price:</label>
-                                                <input type="text" class="form-control" name="price">
+                                                <input type="text" class="form-control" name="price" value="<?=$row['priceEach']?>">
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="msrp">MSRP:</label>
-                                                <input type="text" class="form-control" name="msrp">
+                                                <input type="text" class="form-control" name="msrp" value="<?=$row['MSRP']?>">
                                             </div>
                                             <button type="submit" class="save btn btn-primary">Lưu</button>
                                   </form>

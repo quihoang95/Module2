@@ -1,6 +1,6 @@
 
 <?php 
-      include "./WEB/libraries/database.php"
+      require_once './WEB/libraries/database.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Lamy Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="/IMG/logo_shortcut.png">
+    <link rel="shortcut icon" href="/WEB/IMG/logo_shortcut.png">
       <!-- CSS -->
     <link rel="stylesheet" href="/WEB/CSS/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -23,11 +23,11 @@
     <!-- Header -->
     <section class="main">  
         <div class="logo">
-            <a href="#"><font>LA</font>MY</a>
+            <a href="home.php"><font>LA</font>MY</a>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light side-box">
-             <a class="navbar-brand" href="#">LAMY</a>
+             <a class="navbar-brand" href="home.php">LAMY</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,7 +44,7 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="nav-link" href="/WEB/cart.php"><i class="fas fa-shopping-cart"></i></a>
                     </li>
                     
                 </ul>
@@ -62,10 +62,11 @@
             <a href="" class="main-btn">Details</a>
         </div>
         <div class="social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/lamystorehue"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="./Admin/dist/index.php"><i class="fas fa-user-cog"></i></a>
         </div>
     </section>
     <!-- End header -->
@@ -91,18 +92,18 @@ $conn2=$pdo->query($query2);
         <div class="product-container container ">
             <div class="row">
         <?php
-            while($row=$conn->fetch(PDO::FETCH_ASSOC)){
+            foreach($conn as $row):
         ?> 
         <div class="col-sm-6 col-md-4 product__show">
             <div class="p-box">
                 <img src="<?=$row['img']?>" alt="">
                 <p><?=$row['product_name']?></p>
                 <a href="#" class="price"><?= number_format($row['MSRP'])?> VND</a>
-                <a href="#" class="buy-btn" >Add to cart</a>
+                <a href="/WEB/details.php?id=<?= $row['product_code']?>" class="buy-btn" >Detail</a>
                 
             </div>
             </div> 
-            <?php }?>
+            <?php endforeach; ?>
             
             </div>
             
@@ -115,18 +116,18 @@ $conn2=$pdo->query($query2);
         <div class="product-container container">
             <div class="row">
         <?php
-            while($row1=$conn1->fetch(PDO::FETCH_ASSOC)){
+            foreach ($conn1 as $row1):
         ?> 
         <div class="col-sm-6 col-md-4 product__show ">
             <div class="p-box">
                 <img src="<?=$row1['img']?>" alt="">
                 <p><?=$row1['product_name']?></p>
                 <a href="#" class="price"><?=number_format($row1['MSRP'])?> VND</a>
-                <a href="#" class="buy-btn" >Add to cart</a>
+                <a href="/WEB/details.php?id=<?= $row1['product_code']?>" class="buy-btn" >Details</a>
                 
             </div>
             </div> 
-            <?php }?>
+            <?php endforeach;?>
             
             </div>
             
@@ -152,17 +153,17 @@ $conn2=$pdo->query($query2);
         <div class="product-container container">
             <div class="row">
         <?php
-            while($row2=$conn2->fetch(PDO::FETCH_ASSOC)){
+            foreach($conn2 as $row2):
         ?> 
         <div class="col-sm-6 col-md-5 product__show">
             <div class="p-box">
                 <img src="<?=$row2['img']?>" alt="">
                 <p><?=$row2['product_name']?></p>
                 <a href="#" class="price"><?= number_format($row2['MSRP'])?> VND</a>
-                <a href="#" class="buy-btn" >Add to cart</a>       
+                <a href="/WEB/details.php?id=<?= $row2['product_code']?>" class="buy-btn" >Details</a>       
             </div>
         </div> 
-        <?php }?>     
+            <?php endforeach;?>     
         </div>   
         </div>
     </section>
@@ -180,7 +181,8 @@ $conn2=$pdo->query($query2);
 </footer>
 <a href="#" class="copyright">@Copy right 2020</a>
  <!-- jQuery and JS bundle w/ Popper.js -->
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
 </body>
 </html>

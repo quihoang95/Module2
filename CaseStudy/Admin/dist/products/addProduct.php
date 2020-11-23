@@ -1,7 +1,7 @@
 
 <?php include __DIR__ . "/../layout/header.php";
       include ('../libraries/database.php');
-        $query='SELECT * FROM dbquanlibanhang.products;';
+        $query='SELECT * FROM products;';
         $conn=$pdo->query($query);
 
         $query2='SELECT * FROM dbquanlibanhang.categories;';
@@ -15,10 +15,10 @@
                         <h1 class="mt-4">Dashboard</h1>
                        
                         <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active"><a href="/index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="/../Admin/dist/index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">Danh mục</li>
-                            <li class="breadcrumb-item active"><a href="/products/products.php">Kho hàng</a></li>
-                            <li class="breadcrumb-item active"><a href="/products/addProduct.php">Add</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/products/products.php">Kho hàng</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/products/addProduct.php">Add</a></li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">

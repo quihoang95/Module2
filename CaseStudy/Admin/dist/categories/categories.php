@@ -11,9 +11,9 @@ $conn=$pdo->query($query);
                         <h1 class="mt-4">Dashboard</h1>
                        
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active"><a href="/index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">Danh mục</li>
-                            <li class="breadcrumb-item active"><a href="/categories/categories.php">Loại hàng</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/categories/categories.php">Loại hàng</a></li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
@@ -27,8 +27,7 @@ $conn=$pdo->query($query);
                                         <thead>
                                             <tr>
                                                 <th>STT</th>
-                                                <th>Name</th>
-                                                <th>Description</th>
+                                                <th>Name</th> 
                                                 <th></th>
                                                 
                                             </tr>
@@ -37,7 +36,6 @@ $conn=$pdo->query($query);
                                             <tr>
                                                 <th>STT</th>
                                                 <th>Name</th>
-                                                <th>Description</th>
                                                 <th></th>
                                             </tr>
                                         </tfoot>
@@ -49,10 +47,10 @@ $conn=$pdo->query($query);
                                             <tr>
                                                 <td><?=$i?></td>
                                                 <td><?=$row['product_style']?></td>
-                                                <td><?=$row['category_description']?></td>
                                                 <td>
-                                                <a class="btn btn-primary" href="edit.php?id=<?=$row['product_style']?>">Edit</a>
-                                                <a class="btn btn-danger" href="delete.php?id=<?=$row['product_style']?>">Delete</a>
+                                                <a class="btn btn-primary" href="/../Admin/dist/categories/categoriesDetail.php?id=<?=$row['product_style']?>">Detail</a>
+                                                <a class="btn btn-primary" href="/../Admin/dist/categories/edit.php?id=<?=$row['product_style']?>">Edit</a>
+                                                <a class="btn btn-danger" href="/../Admin/dist/categories/delete.php?id=<?=$row['product_style']?>">Delete</a>
                                                 </td>
                                             </tr>
                                   

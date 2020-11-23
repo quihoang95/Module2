@@ -12,10 +12,10 @@
                         <h1 class="mt-4">Dashboard</h1>
                        
                         <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active"><a href="/index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="/../Admin/dist/index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">Danh mục</li>
-                            <li class="breadcrumb-item active"><a href="/categories/categories.php">Loại hàng</a></li>
-                            <li class="breadcrumb-item active"><a href="/categories/edit.php">Edit</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/categories/categories.php">Loại hàng</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/categories/edit.php">Edit</a></li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -25,11 +25,7 @@
                                     <input type="hidden" name="id" value="<?=$id?>">
                                     <div class="form-group col-6">
                                       <label for="exampleInputEmail1">Name:</label>
-                                      <input type="text" class="form-control" name="product_style" aria-describedby="emailHelp">
-                                    </div>
-                                    <div class="form-group col-6">
-                                      <label for="exampleInputEmail1">Description:</label>
-                                      <input type="text" class="form-control" name="category_description" aria-describedby="emailHelp">
+                                      <input type="text" class="form-control" name="product_style" aria-describedby="emailHelp" value="<?=$id?>" >
                                     </div>
                                     <button type="submit" class="save btn btn-primary">Lưu</button>
                                   </form>

@@ -1,77 +1,48 @@
 <?php 
     include "libraries/database.php";
+    include "layout/header.php";
 
     $query = 'SELECT * FROM dbquanlibanhang.products;';
     $conn=$pdo->query($query);
+
+    $query1 = "SELECT count(product_code) as total FROM dbquanlibanhang.products";
+    $product = $pdo->query($query1);
+    $row1 = $product->fetch(PDO::FETCH_ASSOC);
+    $total_records = $row1['total'];
+    // limit và curren page
+    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $limit = 9;
+    // tổng trang
+    $total_page = ceil($total_records / $limit);
+    if ($current_page > $total_page) {
+        $current_page = $total_page;
+    } else if ($current_page < 1) {
+        $current_page = 1;
+    }
+    $start = ($current_page - 1) * $limit;
+    // 
+    $query = "SELECT * FROM dbquanlibanhang.products LIMIT $start, $limit";
+    $conn = $pdo->query($query);
+
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lamy Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="/IMG/logo_shortcut.png">
-      <!-- CSS -->
-    <link rel="stylesheet" href="/CSS/home.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/reponsive.css">
-   
-    <script src="https://kit.fontawesome.com/6d402694d7.js" crossorigin="anonymous"></script>
-</head>
-<body>
-        <div class="logo">
-            <a href="#"><font>LA</font>MY</a>
-        </div>
-        <div class="search">
-        <form class="form-inline search__header">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        </div>
-        <div class="cart">
-            <i class="fas fa-shopping-cart fa-3x"></i>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light nav">
-        <a class="navbar-brand" href="#">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">About us</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Store</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">News</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Contacts</a>
-                </li>   
-            </ul>
-        </div>
-    </nav>
-    </div>
+
     <!-- Carousel -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1"></li>
+            <li data-target="#slides" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner ">
             <div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="...">
+                <img src="./IMG/banner1.jpg">
             </div>
         <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
+                <img src="./IMG/home1_slider1.png">
         </div>
         <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
+                <img src="./IMG/bg1-slider-home1.jpg">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -83,39 +54,59 @@
         <span class="sr-only">Next</span>
     </a>
     </div>
-    
+        <!-- Products container -->
         <div class="title">
             <h3>Collection</h3>
         </div>
-        <div class="list-group list">
-            <a href="#" class="list-group-item list-group-item-action"></a>
-            <a href="#" class="list-group-item list-group-item-action"></a>
-            <a href="#" class="list-group-item list-group-item-action"></a>
-            <a href="#" class="list-group-item list-group-item-action"></a>
-            <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true"></a>
-        </div>
+        <div class="container container__list">
+        <ul class="list-group">
+            <li class="list-group-item"><a href="home.php?categoryId=<?='All'?>">All</a></li>
+            <li class="list-group-item"><a href="home.php?categoryId=<?='Clothes'?>">Clothes</a></li>
+            <li class="list-group-item"><a href="home.php?categoryId=<?='Dress Code'?>">Dress Code</a></li>
+            <li class="list-group-item"><a href="home.php?categoryId=<?='Jewelry'?>">Jewelry</a></li>
+            <li class="list-group-item"><a href="home.php?categoryId=<?='Accessories'?>">Accessories</a></li>
+            <li class="list-group-item"><a href="home.php?categoryId=<?='Underwear'?>">Underwear</a></li>
+        </ul>
+
         <div class="product-container container ">
             <div class="row">
-     
+            <?php
+            while($row=$conn->fetch(PDO::FETCH_ASSOC)){
+        ?> 
+                <div class="col-sm-6 col-md-4">
+                    <div class="p-box">
+                        <a href="details.php?id=<?= $row['product_code']?>"><img src="<?=$row['img']?>"></a>
+                        <p><?=$row['product_name']?></p>
+                        <a href="#" class="price"><?= number_format($row['MSRP'])?> VND</a>
+                        <a href="details.php?id=<?= $row['product_code']?>" class="buy-btn">Details</a>
+                    </div>
+                </div>
+                <?php }?> 
             </div>
+             <!-- Pagination -->
+             <div class="pagination">
+                <?php
+                if ($current_page > 1 && $total_page > 1) {
+                    echo '<a style="padding: 10px" href="home.php?page=' . ($current_page - 1) . '"><i class="fas fa-chevron-left"></i></a>';
+                }
+                for ($i = 1; $i <= $total_page; $i++) {
+                    if ($i == $current_page) {
+                        echo '<span style="padding: 10px">' . $i . '</span>';
+                    } else {
+                        echo '<a style="padding: 10px" href="home.php?page=' . $i . '">' . $i . '</a>';
+                    }
+                }
+                if ($current_page < $total_page && $total_page > 1) {
+                    echo '<a style="padding: 10px" href="home.php?page=' . ($current_page + 1) . '"><i class="fas fa-chevron-right"></i></a>';
+                }
+                ?>
+            </div>
+            
+        </div>
+        </div>
 
 
    
    
 
-<!-- Footer -->
-<!-- <footer>
-    <h3>LAMY</h3>
-    <ul class="footer-menu">
-        <li><a href="#">Áo,quần</a></li>
-        <li><a href="#">Váy,đầm</a></li>
-        <li><a href="#">Trang sức</a></li>
-        <li><a href="#">Phụ kiện</a></li>
-    </ul>
-</footer>
-<a href="#" class="copyright">@Copy right 2020</a> -->
- <!-- jQuery and JS bundle w/ Popper.js -->
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php include "layout/footer.php"?>

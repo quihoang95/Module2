@@ -12,9 +12,9 @@ $conn=$pdo->query($query);
                         <h1 class="mt-4">Dashboard</h1>
                        
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active"><a href="/index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">Danh mục</li>
-                            <li class="breadcrumb-item active"><a href="/products/products.php">Kho hàng</a></li>
+                            <li class="breadcrumb-item active"><a href="/../Admin/dist/products/products.php">Kho hàng</a></li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
@@ -42,8 +42,6 @@ $conn=$pdo->query($query);
                                         $i=0;
                                         while($row=$conn->fetch(PDO::FETCH_ASSOC)){
                                             $i++ ?>
-                                        
-                                    
                                             <tr>
                                                 <td><?=$i?></td>
                                                 <td><?=$row['product_code']?></td>
@@ -51,7 +49,7 @@ $conn=$pdo->query($query);
                                                 <td><?=$row['product_style']?></td>
                                                 <td><?=$row['stock']?></td>
                                                 <td><img src="<?=$row['img']?>" style="width: 5em"></td>
-                                                <td><?=$row['priceEach']?></td>
+                                                <td><?=number_format($row['priceEach'])?></td>
                                                 <td class="d-flex">
                                                 <a class="btn btn-primary " href="editProduct.php?id=<?=$row['product_code']?>">Edit</a>
                                                 <a class="btn btn-danger ml-1" href="deleteProduct.php?id=<?=$row['product_code']?>">Delete</a>

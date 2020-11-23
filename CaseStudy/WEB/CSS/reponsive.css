@@ -30,6 +30,33 @@
         height: 500px;
         margin: 20px;
     }
+    .detail{
+        background-size: 100%;
+    }
+    .detail_product{
+        margin-left: -135px;
+    }
+    .detail__picture{
+        position: relative;
+        margin-left: -204px;
+    }
+    .detail_productName{
+        font-size: 15px;
+        text-align: right;
+    }
+    .detail_productName h4{
+        display: none;
+    }
+    .detail_multiImg{
+        margin-left: -70px;
+    }
+    .detail_button{
+        font-size: 10px;
+        margin-top: -5px;
+    }
+    .freeShip{
+        float: right;
+    }
 }
 @media(max-width:600px){
     .social{
